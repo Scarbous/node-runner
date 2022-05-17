@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  runner:
+    build:
+      context: .
+    volumes:
+      - ./:/src
+    environment:
+      - DIR=/src/example
+      - TASK=build
