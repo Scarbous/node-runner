@@ -37,7 +37,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          push: ${{ github.GITHUB_REF_NAME == 'master' && GITHUB_REF_TYPE == 'branch' }}
+          push: ${{ github.GITHUB_REF_NAME == 'master' && github.GITHUB_REF_TYPE == 'branch' }}
           builder: ${{ steps.buildx.outputs.name }}
           build-args: "NODE_VERSION=$NODE_VERSION"
           platforms: linux/amd64,linux/arm64
