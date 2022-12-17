@@ -1,4 +1,7 @@
 name: scarbous/node-runner
+branding:
+  icon: package
+  color: orange
 description: It will install and run your npm script
 inputs:
   nodeVersion:
@@ -12,7 +15,9 @@ inputs:
     default: "build"
 runs:
   using: 'docker'
+  args:
+    - NODE_VERSION=${{ inputs.nodeVersion }}
   env:
     DIR: "/github/workspace/${{ inputs.dir }}"
     TASK: ${{ inputs.task }}
-  image: "docker://ghcr.io/scarbous/node-runner/${{ inputs.nodeVersion }}:latest"
+  image: "Dockerfile"
