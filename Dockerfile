@@ -1,4 +1,6 @@
-FROM node:16-bullseye
+ARG NODE_VERSION=16
+
+FROM node:${NODE_VERSION}-bullseye
 
 ENV DIR=/src
 ENV TASK=dev
