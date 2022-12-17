@@ -15,5 +15,4 @@ runs:
   env:
     DIR: "/github/workspace/${{ inputs.dir }}"
     TASK: ${{ inputs.task }}
-    IMAGE: "ghcr.io/scarbous/node-runner/${{ inputs.nodeVersion }}:latest"
-  image: $IMAGE
+  image: "docker://ghcr.io/scarbous/node-runner/${{ inputs.nodeVersion }}:latest"
