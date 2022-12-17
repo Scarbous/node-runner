@@ -19,6 +19,7 @@ jobs:
           - { NODE_VERSION: 19 }
     env:
       DOCKER_IMAGE: ghcr.io/scarbous/node-runner/${{ matrix.env.NODE_VERSION }}
+      BuildArgs: NODE_VERSION=${{ matrix.env.NODE_VERSION }}
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -40,6 +41,6 @@ jobs:
         with:
           push: ${{ github.GITHUB_REF_NAME == 'master' && github.GITHUB_REF_TYPE == 'branch' }}
           builder: ${{ steps.buildx.outputs.name }}
-          build-args: "NODE_VERSION=${{ env.NODE_VERSION }}"
+          build-args: ${{ env.BuildArgs }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ env.DOCKER_IMAGE }}
