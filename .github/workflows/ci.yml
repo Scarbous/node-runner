@@ -44,7 +44,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          push: ${{ github.GITHUB_REF_NAME == 'main' && github.GITHUB_REF_TYPE == 'branch' }}
+          push: ${{ github.ref_name == 'main' && github.ref_type == 'branch' }}
           builder: ${{ steps.buildx.outputs.name }}
           build-args: ${{ env.BuildArgs }}
           platforms: linux/amd64,linux/arm64
