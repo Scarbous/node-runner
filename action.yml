@@ -1,4 +1,4 @@
-name: node-runner
+name: scarbous/node-runner
 description: It will install and run your npm script
 inputs:
   nodeVersion:
