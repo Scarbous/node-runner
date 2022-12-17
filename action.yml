@@ -1,0 +1,18 @@
+name: node-runner
+description: It will install and run your npm script
+inputs:
+  nodeVersion:
+    description: the node Version to use
+    default: "16"
+  dir:
+    description: base dir of
+    default: "/"
+  task:
+    description: The name of the npm script to run
+    default: "build"
+runs:
+  using: 'docker'
+  env:
+    DIR: "/github/workspace/${{ inputs.dir }}"
+    TASK: ${{ inputs.task }}
+  image: 'ghcr.io/scarbous/node-runner/${{ input.nodeVersion }}:latest'
