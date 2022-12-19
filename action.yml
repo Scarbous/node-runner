@@ -4,9 +4,6 @@ branding:
   color: orange
 description: It will install and run your npm script
 inputs:
-  nodeVersion:
-    description: the node Version to use
-    default: "16"
   dir:
     description: base dir of
     default: "/"
@@ -15,8 +12,6 @@ inputs:
     default: "build"
 runs:
   using: 'docker'
-  args:
-    - NODE_VERSION=${{ inputs.nodeVersion }}
   env:
     DIR: "/github/workspace/${{ inputs.dir }}"
     TASK: ${{ inputs.task }}
