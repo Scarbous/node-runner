@@ -35,7 +35,7 @@ The action runs the configured script from your `package.json`.
 | **Name** | **Default** | **Info** |
 |-|-|-|
 | **DIR** | `"/"` | The dir which contains your `package.json` |
-| **TASK** | `"buil"` | Name of the script to run |
+| **TASK** | `"build"` | Name of the script to run |
 
 ## Example usage
 
